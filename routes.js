@@ -5,26 +5,8 @@ var path    = require("path");
 var people  = require('./database');
 
 router.get('/', function (req, res) {
-  var html = fs.readFileSync('./non-modular/index.html', 'utf8');
+  var html = fs.readFileSync('./index.html', 'utf8');
   res.send(html);
-});
-
-router.get('/non-modular', function (req, res) {
-  res.sendFile(path.join(__dirname+'/non-modular/index.html'));
-});
-
-router.get('/non-modular/scripts.js', function (req, res) {
-  var string = fs.readFileSync('./non-modular/scripts.js');
-  res.send(string);
-});
-
-router.get('/modular', function (req, res) {
-  res.sendFile(path.join(__dirname+'/modular/index.html'));
-});
-
-router.get('/modular/scripts.js', function (req, res) {
-  var string = fs.readFileSync('./modular/scripts.js');
-  res.send(string);
 });
 
 router.post('/people', function (req, res) {
