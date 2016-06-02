@@ -9,6 +9,24 @@ router.get('/', function (req, res) {
   res.send(html);
 });
 
+// router.get('/non-modular', function (req, res) {
+//   res.sendFile(path.join(__dirname+'/non-modular/index.html'));
+// });
+
+// router.get('/non-modular/scripts.js', function (req, res) {
+//   var string = fs.readFileSync('./non-modular/scripts.js');
+//   res.send(string);
+// });
+
+// router.get('/modular', function (req, res) {
+//   res.sendFile(path.join(__dirname+'/modular/index.html'));
+// });
+
+router.get('/scripts.js', function (req, res) {
+  var string = fs.readFileSync('./scripts.js');
+  res.send(string);
+});
+
 router.post('/people', function (req, res) {
   var newPerson = {name: req.body.name, amount: req.body.amount};
   people[people.length + 1] = newPerson;
