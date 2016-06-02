@@ -9,19 +9,6 @@ router.get('/', function (req, res) {
   res.send(html);
 });
 
-// router.get('/non-modular', function (req, res) {
-//   res.sendFile(path.join(__dirname+'/non-modular/index.html'));
-// });
-
-// router.get('/non-modular/scripts.js', function (req, res) {
-//   var string = fs.readFileSync('./non-modular/scripts.js');
-//   res.send(string);
-// });
-
-// router.get('/modular', function (req, res) {
-//   res.sendFile(path.join(__dirname+'/modular/index.html'));
-// });
-
 router.get('/scripts.js', function (req, res) {
   var string = fs.readFileSync('./scripts.js');
   res.send(string);
@@ -38,11 +25,9 @@ router.get('/people', function (req, res) {
   res.status(200).send(people);
 });
 
-router.get('/code/:type', function (req, res) {
-  var js_path = `${__dirname}/${req.params.type}/scripts.js`;
-  var html_path = `${__dirname}/${req.params.type}/index.html`;
+router.get('/code/', function (req, res) {
+  var js_path = `${__dirname}/scripts.js`;
   var js = fs.readFileSync(js_path, 'utf8');
-  var html = fs.readFileSync(html_path, 'utf8');
   res.send({html: html, js: js})
 });
 
